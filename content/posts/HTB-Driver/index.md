@@ -1,7 +1,7 @@
 +++
 date = '2025-07-18T19:25:26+08:00'
 draft = false
-title = 'HTB Drive'
+title = 'HTB Driver'
 +++
 
 这是一台发布于2021年12月2日的靶机，HTB投票结果显示这台靶机为easy难度，Driver涉及到针对smb服务，利用scf文件，触发smb服务的NTLMv2协议，从而拿到初始凭证，通过开放的winrm端口登陆之后，提权过程中利用2021年6月8日发布的针对windows print spooler产生的提权漏洞，从而实现从普通用户提升到`nt authority\system`权限, 最后使用net user配合impacket-secretdump进行持久化权限，这个持久化方式在实战中不推荐使用
