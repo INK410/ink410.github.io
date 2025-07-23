@@ -1,6 +1,6 @@
 +++
 date = '2025-07-20T16:32:58+08:00'
-draft = true
+draft = false
 title = 'HTB Crafty'
 +++
 
